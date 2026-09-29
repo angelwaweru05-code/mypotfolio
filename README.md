@@ -100,4 +100,8 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
+<<<<<<< HEAD
 *Built with ❤️ as part of my software development journey*
+=======
+*Built with ❤️ as part of my software development journey*
+>>>>>>> git-pages
