@@ -9,11 +9,18 @@
 <body>
     <header class="container">
         <div class="logo">Angel Chelsey Waweru| Aspiring software developer</div>
-        <ul class="nav-links">
-            <li><a href="#hero-section">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <nav class="nav-links" id="nav-links">
+            <ul>
+                <li><a href="#hero-section">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
     <section class="hero-section" id="hero-section">
         <img src="/hero.jpeg" alt="Portfolio Hero" class="hero-image">
@@ -79,5 +86,32 @@
         <p>&copy; 2026 My Portfolio</p>
         <p><a href="mailto:your.email@example.com">angelwaweru05@gmail.com</a></p>
     </footer>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            const isExpanded = hamburger.classList.contains('active');
+            hamburger.setAttribute('aria-expanded', isExpanded);
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
 </body>
 </html>
